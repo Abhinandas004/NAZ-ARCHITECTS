@@ -119,4 +119,89 @@
       transparent 100%
     );
   }
+
+  /* Blueprint Grid Pattern */
+  .blueprint-bg {
+    background-image: 
+      linear-gradient(rgba(202, 138, 4, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(202, 138, 4, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+  }
+
+  .blueprint-bg-dark {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  /* Text Reveal Animations */
+  @keyframes blurToSharp {
+    from {
+      filter: blur(8px);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-reveal-text {
+    animation: blurToSharp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  /* Light Sweep Animation */
+  .sweep-hover {
+    position: relative;
+    overflow: hidden;
+  }
+  .sweep-hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15) 30%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.15) 70%,
+      transparent
+    );
+    transform: skewX(-25deg);
+    transition: none;
+  }
+  .sweep-hover:hover::after {
+    left: 150%;
+    transition: left 1.2s ease-in-out;
+  }
+
+  /* Magnetic button classes */
+  .btn-magnetic {
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+  }
+
+  /* Custom Scrollbar for Lenis */
+  html.lenis {
+    height: auto;
+  }
+  .lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis-smooth [data-lenis-prevent] {
+    overflow: clip;
+  }
+  .lenis-smooth iframe {
+    pointer-events: none;
+  }
 }
